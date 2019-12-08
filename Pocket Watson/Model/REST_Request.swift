@@ -17,6 +17,10 @@ class REST_Request {
     private let base_url:String = "https://www.googleapis.com/books/v1/volumes?q="
     private let paramTitle:String = "intitle:"
     private let paramAuthor:String = "+inauthor:"
+    
+    var bookList:[Book] {
+        return books
+    }
 
     func getBook(title:String, author:String) {
         books = []
@@ -89,4 +93,7 @@ class REST_Request {
         task.resume()
     }
 
+    private init() {}
+    static let shared = REST_Request()
+    
 }
