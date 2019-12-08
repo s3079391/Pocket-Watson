@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct REST_Request {
+class REST_Request {
     
     private var books:[Book] = []
     
@@ -18,15 +18,15 @@ struct REST_Request {
     private let paramTitle:String = "intitle:"
     private let paramAuthor:String = "+inauthor:"
 
-    mutating func getBook(title:String, author:String) {
+    func getBook(title:String, author:String) {
         books = []
         let url = base_url + paramTitle + title + paramAuthor + author
-        print(url)
+//        print(url)
         
         guard let escapedAddress = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
             return
         }
-        print(escapedAddress)
+//        print(escapedAddress)
         
         if let url = URL(string:escapedAddress) {
             let request = URLRequest(url:url)
@@ -50,11 +50,39 @@ struct REST_Request {
                 }
                 let result = parsedResult as! [String:Any]
                 // for debugging
-                 print(result)
+                // print(result)
                 
                 let allBooks = result["items"] as! [[String:Any]]
-                print(allBooks)
+                // print(allBooks)
                 
+                if allBooks.count > 0 {
+                    for eachBook in allBooks {
+                        let volInfo = eachBook["volumeInfo"] as! [String:Any]
+
+                        let title = volInfo["title"] as! String
+                        let url = volInfo["canonicalVolumeLink"] as! String
+
+                        let authorInfo = volInfo["authors"] as! [String]
+                        let author = authorInfo[0]
+                        
+                        var imageName = ""
+                        if let img = volInfo["imageLinks"] {
+                            let imageInfo = img as! [String:Any]
+                            imageName = imageInfo["smallThumbnail"] as! String
+                        }
+
+                        let desc = volInfo["description"] as! String
+                        
+                        var pageCount = 0
+                        if let pg = volInfo["pageCount"] {
+                            pageCount = pg as! NSInteger
+                        }
+
+                        let book = Book(title: title, url: url, author: author, imageURL: imageName, description: desc, pageCount: pageCount)
+                        self.books.append(book)
+                    }
+                }
+                print(self.books)
             }
             
         })

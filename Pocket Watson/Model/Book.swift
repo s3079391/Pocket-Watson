@@ -11,7 +11,7 @@ import Foundation
 struct Book {
     
     var title:String
-    var url:URL
+    var url:String
     var author:String
     var imageURL:String
     var description:String
