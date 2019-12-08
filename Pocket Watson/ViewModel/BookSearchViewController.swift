@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookSearchViewController: UIViewController, UITableViewDataSource {
+class BookSearchViewController: UIViewController, UITableViewDataSource, Refresh {
     
     var viewModel = BookSearchViewModel()
     
@@ -38,12 +38,30 @@ class BookSearchViewController: UIViewController, UITableViewDataSource {
         return cell
     }
 
+    func updateUI() {
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        viewModel.delegate = self
     }
 
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        guard let selectedRow = self.tableView.indexPathForSelectedRow else {
+            return
+        }
+        let destination = segue.destination as? BookDetailViewController
+        
+        // Pass the selected object to the new view controller.
+        let selectedBook = viewModel.bookDetails(byIndex: selectedRow.row)
+        destination?.selectedBook = selectedBook
+    }
 
 }
 

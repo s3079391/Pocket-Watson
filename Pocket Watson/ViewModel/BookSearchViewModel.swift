@@ -13,6 +13,15 @@ struct BookSearchViewModel {
     
     private var model = REST_Request.shared
     
+    var delegate:Refresh? {
+        get {
+            return model.delegate
+        }
+        set (value) {
+            model.delegate = value
+        }
+    }
+    
     var count:Int {
         return bookList.count
     }
@@ -43,13 +52,37 @@ struct BookSearchViewModel {
 
     func getImageFor(index:Int) -> UIImage? {
         let url = bookList[index].imageURL
-        let image = UIImage(named:url)
+        let image:UIImage? = nil
+        guard let imageURL = URL(string:url) else {
+            return image
+        }
+        let data = try? Data(contentsOf:imageURL)
+        if let imageData = data {
+            return UIImage(data:imageData)
+        }
         return image
     }
 
+    func getImageFor(book:Book) -> UIImage? {
+        let url = book.imageURL
+        let image:UIImage? = nil
+        guard let imageURL = URL(string:url) else {
+            return image
+        }
+        let data = try? Data(contentsOf:imageURL)
+        if let imageData = data {
+            return UIImage(data:imageData)
+        }
+        return image
+    }
+    
     func getBook(with title:String, author:String) {
         model.getBook(title: title, author: author)
     }
 
+    func bookDetails(byIndex index:Int) -> Book {
+        let selectedBook:Book = bookList[index]
+        return selectedBook
+    }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Book {
     
@@ -16,5 +17,5 @@ struct Book {
     var imageURL:String
     var description:String
     var pageCount:Int
-    
+        
 }

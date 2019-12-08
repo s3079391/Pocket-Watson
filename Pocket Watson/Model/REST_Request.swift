@@ -8,15 +8,18 @@
 
 import Foundation
 
+protocol Refresh {
+    func updateUI()
+}
+
 class REST_Request {
     
     private var books:[Book] = []
     
+    var delegate:Refresh?
     private let session = URLSession.shared
     
     private let base_url:String = "https://www.googleapis.com/books/v1/volumes?q="
-    private let paramTitle:String = "intitle:"
-    private let paramAuthor:String = "+inauthor:"
     
     var bookList:[Book] {
         return books
@@ -24,7 +27,17 @@ class REST_Request {
 
     func getBook(title:String, author:String) {
         books = []
-        let url = base_url + paramTitle + title + paramAuthor + author
+        
+        var titleSearch:String = ""
+        var authorSearch:String = ""
+        if title != "" {
+            titleSearch = "intitle:" + title
+        }
+        if author != "" {
+            authorSearch = "+inauthor:" + author
+        }
+        
+        let url:String = base_url + titleSearch + authorSearch
 //        print(url)
         
         guard let escapedAddress = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
@@ -75,18 +88,25 @@ class REST_Request {
                             imageName = imageInfo["smallThumbnail"] as! String
                         }
 
-                        let desc = volInfo["description"] as! String
+                        var description = ""
+                        if let desc = volInfo["description"] {
+                            description = desc as! String
+                        }
                         
                         var pageCount = 0
                         if let pg = volInfo["pageCount"] {
                             pageCount = pg as! NSInteger
                         }
 
-                        let book = Book(title: title, url: url, author: author, imageURL: imageName, description: desc, pageCount: pageCount)
+                        let book = Book(title: title, url: url, author: author, imageURL: imageName, description: description, pageCount: pageCount)
                         self.books.append(book)
                     }
                 }
-                print(self.books)
+                // print(self.books)
+                // cannot update from background thread
+                DispatchQueue.main.async {
+                    self.delegate?.updateUI()
+                }
             }
             
         })

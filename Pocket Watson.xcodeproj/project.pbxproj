@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A3CD4446239C9B720066B4C9 /* BookSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD4445239C9B720066B4C9 /* BookSearchViewModel.swift */; };
+		A3CD4448239CC0190066B4C9 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD4447239CC0190066B4C9 /* BookDetailViewController.swift */; };
 		A3FFA6EB239C7C6D00C76D0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFA6EA239C7C6D00C76D0B /* AppDelegate.swift */; };
 		A3FFA6ED239C7C6D00C76D0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFA6EC239C7C6D00C76D0B /* SceneDelegate.swift */; };
 		A3FFA6EF239C7C6D00C76D0B /* BookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFA6EE239C7C6D00C76D0B /* BookSearchViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		A3CD4445239C9B720066B4C9 /* BookSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchViewModel.swift; sourceTree = "<group>"; };
+		A3CD4447239CC0190066B4C9 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		A3FFA6E7239C7C6D00C76D0B /* Pocket Watson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Watson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3FFA6EA239C7C6D00C76D0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3FFA6EC239C7C6D00C76D0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				A3FFA6EE239C7C6D00C76D0B /* BookSearchViewController.swift */,
 				A3CD4445239C9B720066B4C9 /* BookSearchViewModel.swift */,
+				A3CD4447239CC0190066B4C9 /* BookDetailViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				A3FFA723239C7EFD00C76D0B /* REST_Request.swift in Sources */,
 				A3FFA721239C7EA200C76D0B /* Book.swift in Sources */,
 				A3FFA6F5239C7C6D00C76D0B /* Pocket_Watson.xcdatamodeld in Sources */,
+				A3CD4448239CC0190066B4C9 /* BookDetailViewController.swift in Sources */,
 				A3CD4446239C9B720066B4C9 /* BookSearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
