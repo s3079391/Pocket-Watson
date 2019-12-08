@@ -16,6 +16,8 @@
 		A3FFA6FA239C7C7600C76D0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3FFA6F8239C7C7600C76D0B /* LaunchScreen.storyboard */; };
 		A3FFA705239C7C7600C76D0B /* Pocket_WatsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFA704239C7C7600C76D0B /* Pocket_WatsonTests.swift */; };
 		A3FFA710239C7C7600C76D0B /* Pocket_WatsonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFA70F239C7C7600C76D0B /* Pocket_WatsonUITests.swift */; };
+		A3FFA721239C7EA200C76D0B /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFA720239C7EA200C76D0B /* Book.swift */; };
+		A3FFA723239C7EFD00C76D0B /* REST_Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FFA722239C7EFD00C76D0B /* REST_Request.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		A3FFA70B239C7C7600C76D0B /* Pocket WatsonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket WatsonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3FFA70F239C7C7600C76D0B /* Pocket_WatsonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_WatsonUITests.swift; sourceTree = "<group>"; };
 		A3FFA711239C7C7600C76D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3FFA720239C7EA200C76D0B /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		A3FFA722239C7EFD00C76D0B /* REST_Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REST_Request.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +105,11 @@
 		A3FFA6E9239C7C6D00C76D0B /* Pocket Watson */ = {
 			isa = PBXGroup;
 			children = (
+				A3FFA71F239C7C8B00C76D0B /* ViewModel */,
+				A3FFA71E239C7C8500C76D0B /* View */,
+				A3FFA71D239C7C8000C76D0B /* Model */,
 				A3FFA6EA239C7C6D00C76D0B /* AppDelegate.swift */,
 				A3FFA6EC239C7C6D00C76D0B /* SceneDelegate.swift */,
-				A3FFA6EE239C7C6D00C76D0B /* ViewController.swift */,
-				A3FFA6F0239C7C6D00C76D0B /* Main.storyboard */,
 				A3FFA6F6239C7C7600C76D0B /* Assets.xcassets */,
 				A3FFA6F8239C7C7600C76D0B /* LaunchScreen.storyboard */,
 				A3FFA6FB239C7C7600C76D0B /* Info.plist */,
@@ -129,6 +134,31 @@
 				A3FFA711239C7C7600C76D0B /* Info.plist */,
 			);
 			path = "Pocket WatsonUITests";
+			sourceTree = "<group>";
+		};
+		A3FFA71D239C7C8000C76D0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3FFA720239C7EA200C76D0B /* Book.swift */,
+				A3FFA722239C7EFD00C76D0B /* REST_Request.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A3FFA71E239C7C8500C76D0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A3FFA6F0239C7C6D00C76D0B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A3FFA71F239C7C8B00C76D0B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A3FFA6EE239C7C6D00C76D0B /* ViewController.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +295,8 @@
 				A3FFA6EF239C7C6D00C76D0B /* ViewController.swift in Sources */,
 				A3FFA6EB239C7C6D00C76D0B /* AppDelegate.swift in Sources */,
 				A3FFA6ED239C7C6D00C76D0B /* SceneDelegate.swift in Sources */,
+				A3FFA723239C7EFD00C76D0B /* REST_Request.swift in Sources */,
+				A3FFA721239C7EA200C76D0B /* Book.swift in Sources */,
 				A3FFA6F5239C7C6D00C76D0B /* Pocket_Watson.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
