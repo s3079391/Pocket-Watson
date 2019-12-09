@@ -97,7 +97,7 @@ class REST_Request {
                         if let pg = volInfo["pageCount"] {
                             pageCount = pg as! NSInteger
                         }
-
+                        
                         let book = Book(title: title, url: url, author: author, imageURL: imageName, description: description, pageCount: pageCount)
                         self.books.append(book)
                     }
