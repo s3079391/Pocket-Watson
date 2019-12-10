@@ -8,10 +8,12 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController {
+class AddBookViewController: UIViewController {
     
     var selectedBook:Book?
-    var viewModel = BookSearchViewModel()
+    var bookSearchVM = BookSearchViewModel()
+    var addBookVM = AddBookViewModel()
+    var libraryVM = LibraryViewModel()
     
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
@@ -20,11 +22,25 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookPageCount: UILabel!
     
     
+    @IBAction func addBook(_ sender: Any) {
+        guard let title = bookTitle.text, let author = bookAuthor.text else {
+            return
+        }
+        
+        addBookVM.addBook(title, author)
+        for (book) in libraryVM.libraryList {
+            print(book.title!)
+        }
+        
+    }
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if let book = selectedBook {
-            bookImage.image = viewModel.getImageFor(book: book)
+            bookImage.image = bookSearchVM.getImageFor(book: book)
             bookTitle.text = book.title
             bookAuthor.text = book.author
             bookPageCount.text = "\(book.pageCount)pgs"

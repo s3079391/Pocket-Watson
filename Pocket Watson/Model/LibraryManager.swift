@@ -24,7 +24,7 @@ class LibraryManager {
         loadLibrary()
     }
     
-    private func createNSBook(_ title:String, author:String, url:String, imageURL:String, pageCount:Int, desc:String) -> NewBook {
+    private func createNSBook(_ title:String, author:String) -> NewBook {
         
         let bookEntity = NSEntityDescription.entity(forEntityName: "NewBook", in: managedContext)!
         
@@ -32,16 +32,13 @@ class LibraryManager {
         
         nsBook.setValue(title, forKey: "title")
         nsBook.setValue(author, forKey: "author")
-        nsBook.setValue(url, forKey: "url")
-        nsBook.setValue(imageURL, forKey: "imageURL")
-        nsBook.setValue(desc, forKey: "bookDescription")
 
         return nsBook
     }
 
-    func addBookToLibrary(_ title:String, author:String, url:String, imageURL:String, pageCount:Int, desc:String) {
+    func addBookToLibrary(_ title:String, author:String) {
         
-        let nsBook = createNSBook(title, author: author, url: url, imageURL: imageURL, pageCount: pageCount, desc: desc)
+        let nsBook = createNSBook(title, author: author)
         library.append(nsBook)
         
         do {

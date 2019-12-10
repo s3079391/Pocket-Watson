@@ -56,7 +56,7 @@ class BookSearchViewController: UIViewController, UITableViewDataSource, Refresh
         guard let selectedRow = self.tableView.indexPathForSelectedRow else {
             return
         }
-        let destination = segue.destination as? BookDetailViewController
+        let destination = segue.destination as? AddBookViewController
         
         // Pass the selected object to the new view controller.
         let selectedBook = viewModel.bookDetails(byIndex: selectedRow.row)
