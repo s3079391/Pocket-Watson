@@ -22,9 +22,9 @@ var bookTitles:String {
     }
     return result
 }
-    mutating func addBook(_ title:String, _ author:String) {
+    mutating func addBook(_ title:String, _ author:String, _ pageCount:Int) {
         
-        libraryManager.addBookToLibrary(title, author: author)
+        libraryManager.addBookToLibrary(title, author:author, pageCount:pageCount)
         
     }
     

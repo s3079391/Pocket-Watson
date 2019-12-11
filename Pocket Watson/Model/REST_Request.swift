@@ -78,9 +78,12 @@ class REST_Request {
 
                         let title = volInfo["title"] as! String
                         let url = volInfo["canonicalVolumeLink"] as! String
-
-                        let authorInfo = volInfo["authors"] as! [String]
-                        let author = authorInfo[0]
+                        
+                        var author = ""
+                        if let authorArray = volInfo["authors"] {
+                            let authorName = authorArray as! [String]
+                            author = authorName[0]
+                        }
                         
                         var imageName = ""
                         if let img = volInfo["imageLinks"] {

@@ -10,18 +10,18 @@ import UIKit
 
 class BookSearchViewController: UIViewController, UITableViewDataSource, Refresh {
     
-    var viewModel = BookSearchViewModel()
+    var bookSearchVM = BookSearchViewModel()
     
     @IBOutlet weak var bookTitle: UITextField!
     @IBOutlet weak var bookAuthor: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func search(_ sender: Any) {
-        viewModel.getBook(with: bookTitle.text!, author: bookAuthor.text!)
+        bookSearchVM.getBook(with: bookTitle.text!, author: bookAuthor.text!)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.count
+        bookSearchVM.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -31,9 +31,9 @@ class BookSearchViewController: UIViewController, UITableViewDataSource, Refresh
         let author = cell.viewWithTag(1002) as! UILabel
         let imageView = cell.viewWithTag(1000) as! UIImageView
         
-        title.text = viewModel.getTitleFor(index: indexPath.row)
-        author.text = viewModel.getAuthorFor(index:indexPath.row)
-        imageView.image = viewModel.getImageFor(index: indexPath.row)
+        title.text = bookSearchVM.getTitleFor(index: indexPath.row)
+        author.text = bookSearchVM.getAuthorFor(index:indexPath.row)
+        imageView.image = bookSearchVM.getImageFor(index: indexPath.row)
         
         return cell
     }
@@ -45,7 +45,7 @@ class BookSearchViewController: UIViewController, UITableViewDataSource, Refresh
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        viewModel.delegate = self
+        bookSearchVM.delegate = self
     }
 
     // MARK: - Navigation
@@ -59,7 +59,7 @@ class BookSearchViewController: UIViewController, UITableViewDataSource, Refresh
         let destination = segue.destination as? AddBookViewController
         
         // Pass the selected object to the new view controller.
-        let selectedBook = viewModel.bookDetails(byIndex: selectedRow.row)
+        let selectedBook = bookSearchVM.bookDetails(byIndex: selectedRow.row)
         destination?.selectedBook = selectedBook
     }
 

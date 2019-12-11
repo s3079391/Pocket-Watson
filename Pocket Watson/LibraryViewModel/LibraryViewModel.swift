@@ -21,6 +21,7 @@ struct LibraryViewModel {
     }
     
     func getBook(index:Int) -> NewBook {
+        // print(libraryList[index].title)
         return libraryList[index]
     }
     

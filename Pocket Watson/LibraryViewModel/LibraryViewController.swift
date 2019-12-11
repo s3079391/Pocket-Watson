@@ -11,6 +11,7 @@ import UIKit
 class LibraryViewController: UITableViewController {
     
     private var libraryVM = LibraryViewModel()
+    var selectedBook:NewBook?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,9 @@ class LibraryViewController: UITableViewController {
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
 
     // MARK: - Table view data source
@@ -85,14 +89,20 @@ class LibraryViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let selectedRow = self.tableView.indexPathForSelectedRow else {
+            return
+        }
+        
+        let destination = segue.destination as? BookOptionsViewController
+        selectedBook = libraryVM.getBook(index: selectedRow.row)
+        destination?.selectedBook = selectedBook
+        
     }
-    */
+    
 
 }
