@@ -10,8 +10,15 @@
         <attribute name="summary" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="clueList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NewClue" inverseName="book" inverseEntity="NewClue"/>
+    </entity>
+    <entity name="NewClue" representedClassName="NewClue" syncable="YES">
+        <attribute name="clueDesc" optional="YES" attributeType="String"/>
+        <attribute name="pageNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NewBook" inverseName="clueList" inverseEntity="NewBook"/>
     </entity>
     <elements>
-        <element name="NewBook" positionX="-36" positionY="9" width="128" height="178"/>
+        <element name="NewBook" positionX="-386.16796875" positionY="-35.3359375" width="128" height="193"/>
+        <element name="NewClue" positionX="-27" positionY="90" width="128" height="88"/>
     </elements>
 </model>

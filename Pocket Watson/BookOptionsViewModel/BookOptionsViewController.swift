@@ -52,6 +52,9 @@ class BookOptionsViewController: UIViewController {
         if let destination = segue.destination as? UpdateProgressViewController {
             destination.selectedBook = selectedBook
         }
+        if let destination = segue.destination as? ClueListViewController {
+            destination.selectedBook = selectedBook
+        }
     }
     
 

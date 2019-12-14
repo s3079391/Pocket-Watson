@@ -1,5 +1,5 @@
 //
-//  NewBook+CoreDataClass.swift
+//  NewClue+CoreDataClass.swift
 //  Pocket Watson
 //
 //  Created by Dana Forte on 14/12/19.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(NewBook)
-public class NewBook: NSManagedObject {
+@objc(NewClue)
+public class NewClue: NSManagedObject {
 
 }

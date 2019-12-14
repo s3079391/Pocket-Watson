@@ -69,4 +69,17 @@ class LibraryManager {
         }
     }
     
+    func addClue(book:NewBook, pageNo:Int, clueDesc:String) {
+        
+        let clueEntity = NSEntityDescription.entity(forEntityName: "NewClue", in: managedContext)!
+        
+        let nsClue = NSManagedObject(entity: clueEntity, insertInto: managedContext) as! NewClue
+        
+        let pgNo:Int16 = Int16(pageNo)
+        nsClue.pageNo = pgNo
+        nsClue.clueDesc = clueDesc
+        nsClue.book = book
+        
+        book.addToClueList(nsClue)
+    }
 }
