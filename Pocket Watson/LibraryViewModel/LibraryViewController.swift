@@ -36,11 +36,13 @@ class LibraryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellLibrary", for: indexPath)
-
+        
+        let coverImage = cell.viewWithTag(2000) as! UIImageView
         let title = cell.viewWithTag(2001) as! UILabel
         let author = cell.viewWithTag(2002) as! UILabel
         
         let book:NewBook = libraryVM.getBook(index: indexPath.row)
+        coverImage.image = libraryVM.getImageFor(book: book)
         title.text = book.title
         author.text = book.author
         

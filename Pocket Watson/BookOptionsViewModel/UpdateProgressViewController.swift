@@ -13,17 +13,34 @@ class UpdateProgressViewController: UIViewController {
     private var bookOptionsVM = BookOptionsViewModel()
     var selectedBook:NewBook?
     
-    
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookAuthor: UILabel!
+    @IBOutlet weak var statusSelector: UISegmentedControl!
+    
     
     @IBAction func bookStatus(_ sender: Any) {
+        let getIndex = statusSelector.selectedSegmentIndex
+        if let book = selectedBook {
+            switch getIndex {
+            case 0:
+                bookOptionsVM.changeReadingStatus(book:book, status: "Reading")
+            case 1:
+                bookOptionsVM.changeReadingStatus(book:book, status: "Finished")
+            case 2:
+                bookOptionsVM.changeReadingStatus(book:book, status: "To Buy")
+            default:
+                print("no selection")
+            }
+        }
     }
     
     @IBOutlet weak var pageXofY: UILabel!
-    
     @IBOutlet weak var currentPageNo: UITextField!
     @IBAction func updatePageNumber(_ sender: Any) {
+        if let book = selectedBook, let currentPage = currentPageNo.text {
+            bookOptionsVM.updateCurrentPageNo(book:book, pageNo:currentPage)
+            pageXofY.text = "Page \(book.currentPage) of \(book.pageCount)"
+        }
     }
     
     
@@ -37,7 +54,8 @@ class UpdateProgressViewController: UIViewController {
         if let book = selectedBook {
             bookTitle.text = book.title
             bookAuthor.text = book.author
-            pageXofY.text = "Page X of \(book.pageCount)"
+            pageXofY.text = "Page \(book.currentPage) of \(book.pageCount)"
+            
         }
     }
     

@@ -11,6 +11,7 @@ import UIKit
 
 struct Book {
 
+    var isbn:String
     var title:String
     var url:String
     var author:String

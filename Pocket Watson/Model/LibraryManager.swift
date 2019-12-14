@@ -24,22 +24,31 @@ class LibraryManager {
         loadLibrary()
     }
     
-    private func createNSBook(_ title:String, author:String, pageCount:Int) -> NewBook {
+    private func createNSBook(_ isbn:String, title:String, author:String, coverImage:UIImage, pageCount:Int, summary:String) -> NewBook {
         
         let bookEntity = NSEntityDescription.entity(forEntityName: "NewBook", in: managedContext)!
         
         let nsBook = NSManagedObject(entity: bookEntity, insertInto: managedContext) as! NewBook
         
-        nsBook.setValue(title, forKey: "title")
-        nsBook.setValue(author, forKey: "author")
+        
+        nsBook.isbn = isbn
+        nsBook.title = title
+        nsBook.author = author
         nsBook.pageCount = Int16(pageCount)
+        nsBook.summary = summary
+
+        let imageData = coverImage.pngData() as Data?
+        nsBook.image = imageData
+        
+        nsBook.currentPage = 0
+        nsBook.status = "Reading"
 
         return nsBook
     }
 
-    func addBookToLibrary(_ title:String, author:String, pageCount:Int) {
+    func addBookToLibrary(_ isbn:String, title:String, author:String, coverImage:UIImage, pageCount:Int, summary:String) {
         
-        let nsBook = createNSBook(title, author:author, pageCount:pageCount)
+        let nsBook = createNSBook(isbn, title:title, author:author, coverImage:coverImage, pageCount:pageCount, summary:summary)
         library.append(nsBook)
         
         do {
@@ -59,6 +68,5 @@ class LibraryManager {
             print("Could not save \(error), \(error.userInfo)")
         }
     }
-
     
 }

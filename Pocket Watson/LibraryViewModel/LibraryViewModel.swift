@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct LibraryViewModel {
     
@@ -23,6 +24,14 @@ struct LibraryViewModel {
     func getBook(index:Int) -> NewBook {
         // print(libraryList[index].title)
         return libraryList[index]
+    }
+    
+    func getImageFor(book:NewBook) -> UIImage {
+        let noImage = UIImage(named: "NoImageFound")
+        guard let image = UIImage(data:book.image! as Data) else {
+            return noImage!
+        }
+        return image
     }
     
 }

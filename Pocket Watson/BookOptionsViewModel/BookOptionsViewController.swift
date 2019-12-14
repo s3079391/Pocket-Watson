@@ -11,7 +11,6 @@ import UIKit
 class BookOptionsViewController: UIViewController {
     
     private var bookOptionsVM = BookOptionsViewModel()
-    private var libraryVM = LibraryViewModel()
     var selectedBook:NewBook?
     
     @IBOutlet weak var bookImage: UIImageView!
@@ -33,6 +32,7 @@ class BookOptionsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         if let book = selectedBook {
+            bookImage.image = bookOptionsVM.getImageFor(book: book)
             bookTitle.text = book.title
             bookAuthor.text = book.author
             bookPageCount.text = "\(book.pageCount)pgs"

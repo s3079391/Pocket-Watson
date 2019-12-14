@@ -19,9 +19,9 @@ class BookDetailsViewController: UIViewController {
     @IBOutlet weak var bookPageCount: UILabel!
     @IBOutlet weak var bookDescription: UITextView!
     
-    
-    
-    
+    @IBOutlet weak var statusIndicator: UILabel!
+    @IBOutlet weak var progressIndicator: UILabel!
+    @IBOutlet weak var numberOfClues: UILabel!
     
     
 
@@ -29,9 +29,15 @@ class BookDetailsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         if let book = selectedBook {
+            bookImage.image = bookOptionsVM.getImageFor(book: book)
             bookTitle.text = book.title
             bookAuthor.text = book.author
             bookPageCount.text = "\(book.pageCount)pgs"
+            bookDescription.text = book.summary
+            
+            statusIndicator.text = book.status
+            progressIndicator.text = bookOptionsVM.progressIndicator(book: book)
+            numberOfClues.text = bookOptionsVM.numberOfClues(book: book)
         }
     }
     

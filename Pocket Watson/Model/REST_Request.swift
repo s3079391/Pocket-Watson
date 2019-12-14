@@ -75,8 +75,19 @@ class REST_Request {
                 if allBooks.count > 0 {
                     for eachBook in allBooks {
                         let volInfo = eachBook["volumeInfo"] as! [String:Any]
-
+                        
+                        var isbn = ""
+                        if let indIDs = volInfo["industryIdentifiers"] {
+                            let isbnList = indIDs as! [[String:String]]
+                            for id in isbnList {
+                                if id["type"] == "ISBN_13" {
+                                    isbn = id["identifier"]!
+                                }
+                            }
+                        }
+                        
                         let title = volInfo["title"] as! String
+                        
                         let url = volInfo["canonicalVolumeLink"] as! String
                         
                         var author = ""
@@ -101,7 +112,7 @@ class REST_Request {
                             pageCount = pg as! NSInteger
                         }
                         
-                        let book = Book(title: title, url: url, author: author, imageURL: imageName, description: description, pageCount: pageCount)
+                        let book = Book(isbn:isbn, title: title, url: url, author: author, imageURL: imageName, description: description, pageCount: pageCount)
                         self.books.append(book)
                     }
                 }

@@ -29,12 +29,18 @@ class AddBookViewController: UIViewController {
         }
         
         var pageCount:Int = 0
+        var isbn:String = ""
+        var imageURL:String = ""
+        var description:String = ""
         
         if let book = selectedBook {
             pageCount = book.pageCount
+            isbn = book.isbn
+            imageURL = book.imageURL
+            description = book.description
         }
         
-        addBookVM.addBook(title, author, pageCount)
+        addBookVM.addBook(isbn, title:title, author:author, imageURL:imageURL, pageCount:pageCount, description:description)
         for (book) in libraryVM.libraryList {
             print(book.title!)
         }

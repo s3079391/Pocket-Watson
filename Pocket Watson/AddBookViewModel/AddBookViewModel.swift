@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct AddBookViewModel {
 
@@ -22,10 +23,27 @@ var bookTitles:String {
     }
     return result
 }
-    mutating func addBook(_ title:String, _ author:String, _ pageCount:Int) {
+    mutating func addBook(_ isbn:String, title:String, author:String, imageURL:String, pageCount:Int, description:String) {
         
-        libraryManager.addBookToLibrary(title, author:author, pageCount:pageCount)
+        guard let image:UIImage = getImageFor(url: imageURL) else {
+            return
+        }
+        
+        libraryManager.addBookToLibrary(isbn, title:title, author:author, coverImage:image, pageCount:pageCount, summary:description)
         
     }
     
+    func getImageFor(url:String) -> UIImage? {
+        let image:UIImage? = nil
+        guard let imageURL = URL(string:url) else {
+            return image
+        }
+        let data = try? Data(contentsOf:imageURL)
+        if let imageData = data {
+            return UIImage(data:imageData)
+        }
+        return image
+    }
+
+
 }

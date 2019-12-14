@@ -17,11 +17,14 @@ extension NewBook {
         return NSFetchRequest<NewBook>(entityName: "NewBook")
     }
 
+    @NSManaged public var isbn: String?
     @NSManaged public var title: String?
     @NSManaged public var url: String?
     @NSManaged public var author: String?
-    @NSManaged public var imageURL: String?
+    @NSManaged public var image: Data?
+    @NSManaged public var currentPage: Int16
     @NSManaged public var pageCount: Int16
-    @NSManaged public var bookDescription: String?
-
+    @NSManaged public var summary: String?
+    @NSManaged public var status: String?
+    
 }
