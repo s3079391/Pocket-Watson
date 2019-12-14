@@ -41,9 +41,9 @@ class AddBookViewController: UIViewController {
         }
         
         addBookVM.addBook(isbn, title:title, author:author, imageURL:imageURL, pageCount:pageCount, description:description)
-        for (book) in libraryVM.libraryList {
-            print(book.title!)
-        }
+//        for (book) in libraryVM.libraryList {
+//            print(book.title!)
+//        }
         
     }
     

@@ -2,7 +2,7 @@
 //  LibraryManager.swift
 //  Pocket Watson
 //
-//  Created by Dana Forte on 9/12/19.
+//  Created by Andrew Savva on 9/12/19.
 //  Copyright © 2019 RMIT. All rights reserved.
 //
 
@@ -18,6 +18,7 @@ class LibraryManager {
     let managedContext:NSManagedObjectContext
     
     private (set) var library:[NewBook] = []
+    private (set) var clueList:[NewClue] = []
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
@@ -69,10 +70,9 @@ class LibraryManager {
         }
     }
     
-    func addClue(book:NewBook, pageNo:Int, clueDesc:String) {
+    func addClueToBook(book:NewBook, pageNo:Int, clueDesc:String) {
         
         let clueEntity = NSEntityDescription.entity(forEntityName: "NewClue", in: managedContext)!
-        
         let nsClue = NSManagedObject(entity: clueEntity, insertInto: managedContext) as! NewClue
         
         let pgNo:Int16 = Int16(pageNo)
@@ -81,5 +81,18 @@ class LibraryManager {
         nsClue.book = book
         
         book.addToClueList(nsClue)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+
     }
+    
+    func saveClueToClueList(book:NewBook, clue:NewClue, pageNo:Int, clueDesc:String) {
+        book.removeFromClueList(clue)
+        addClueToBook(book: book, pageNo: pageNo, clueDesc: clueDesc)
+    }
+    
 }

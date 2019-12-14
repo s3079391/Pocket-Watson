@@ -2,7 +2,7 @@
 //  AddBookViewModel.swift
 //  Pocket Watson
 //
-//  Created by Dana Forte on 9/12/19.
+//  Created by Andrew Savva on 9/12/19.
 //  Copyright © 2019 RMIT. All rights reserved.
 //
 

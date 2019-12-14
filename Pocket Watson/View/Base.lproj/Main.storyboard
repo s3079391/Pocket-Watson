@@ -732,6 +732,9 @@
                                         <constraint firstItem="oUx-us-QMX" firstAttribute="leading" secondItem="9HL-Nc-XrM" secondAttribute="leading" constant="16" id="xIf-CM-iUr"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="lFN-wr-V7Y" kind="presentation" id="YrB-Ep-tab"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -739,7 +742,9 @@
                             <outlet property="delegate" destination="Er5-JR-6nS" id="mJG-80-XO5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sWM-zJ-VaJ"/>
+                    <navigationItem key="navigationItem" id="sWM-zJ-VaJ">
+                        <barButtonItem key="backBarButtonItem" title="Clue List" id="yEI-JZ-3Ev"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocE-rR-UbJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -748,24 +753,36 @@
         <!--AddAClue-->
         <scene sceneID="gPM-ao-Igt">
             <objects>
-                <viewController title="AddAClue" id="lFN-wr-V7Y" customClass="AddClueViewController" customModule="Pocket_Watson" sceneMemberID="viewController">
+                <viewController title="AddAClue" id="lFN-wr-V7Y" customClass="ClueDetailViewController" customModule="Pocket_Watson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kgT-65-Yne">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kEn-eY-Wwo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Clue" id="Tmo-cL-vk7">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ziw-W1-38H">
+                                            <connections>
+                                                <action selector="cancelClue:" destination="lFN-wr-V7Y" id="R8j-uR-fFI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MGt-7D-JVW">
+                                            <connections>
+                                                <action selector="saveClue:" destination="lFN-wr-V7Y" id="X7E-ZT-V8V"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Th2-qx-HWV">
-                                <rect key="frame" x="16" y="90" width="288" height="34"/>
+                                <rect key="frame" x="16" y="127" width="288" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Clue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBb-3q-yax">
-                                <rect key="frame" x="16" y="25" width="288" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SVQ-OV-EQs">
-                                <rect key="frame" x="16" y="161" width="288" height="350"/>
+                                <rect key="frame" x="16" y="198" width="288" height="254"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -773,48 +790,58 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page No:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Md-7Q-wSg">
-                                <rect key="frame" x="16" y="61" width="288" height="21"/>
+                                <rect key="frame" x="16" y="98" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clue:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtO-9e-0fa">
-                                <rect key="frame" x="16" y="142" width="288" height="21"/>
+                                <rect key="frame" x="16" y="179" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0c-rE-nnV">
+                                <rect key="frame" x="16" y="498" width="288" height="30"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Delete Clue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="updatePageNumber:" destination="DgZ-Br-6Cq" eventType="touchUpInside" id="I8O-5w-R0c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="0Md-7Q-wSg" firstAttribute="leading" secondItem="pBb-3q-yax" secondAttribute="leading" id="1nD-Yj-ZuB"/>
-                            <constraint firstItem="pBb-3q-yax" firstAttribute="leading" secondItem="FPy-dp-KuV" secondAttribute="leading" constant="16" id="EIh-rf-9pc"/>
+                            <constraint firstItem="n0c-rE-nnV" firstAttribute="top" secondItem="SVQ-OV-EQs" secondAttribute="bottom" constant="46" id="C6G-zR-gfL"/>
+                            <constraint firstItem="n0c-rE-nnV" firstAttribute="trailing" secondItem="SVQ-OV-EQs" secondAttribute="trailing" id="D1C-pq-Q6t"/>
+                            <constraint firstItem="0Md-7Q-wSg" firstAttribute="top" secondItem="FPy-dp-KuV" secondAttribute="top" constant="98" id="HNg-tC-VkH"/>
                             <constraint firstItem="LtO-9e-0fa" firstAttribute="trailing" secondItem="Th2-qx-HWV" secondAttribute="trailing" id="Hd8-ia-57u"/>
-                            <constraint firstItem="0Md-7Q-wSg" firstAttribute="trailing" secondItem="pBb-3q-yax" secondAttribute="trailing" id="ME9-qd-Fn1"/>
-                            <constraint firstItem="FPy-dp-KuV" firstAttribute="trailing" secondItem="pBb-3q-yax" secondAttribute="trailing" constant="16" id="Mq1-vu-oSF"/>
                             <constraint firstItem="Th2-qx-HWV" firstAttribute="trailing" secondItem="0Md-7Q-wSg" secondAttribute="trailing" id="Njz-8S-4Ns"/>
                             <constraint firstItem="Th2-qx-HWV" firstAttribute="top" secondItem="0Md-7Q-wSg" secondAttribute="bottom" constant="8" id="QML-72-IxD"/>
-                            <constraint firstItem="pBb-3q-yax" firstAttribute="top" secondItem="FPy-dp-KuV" secondAttribute="top" constant="25" id="Wvb-lc-Ihs"/>
                             <constraint firstItem="SVQ-OV-EQs" firstAttribute="trailing" secondItem="LtO-9e-0fa" secondAttribute="trailing" id="aWP-fK-ENb"/>
                             <constraint firstItem="SVQ-OV-EQs" firstAttribute="leading" secondItem="LtO-9e-0fa" secondAttribute="leading" id="cI4-zY-lDp"/>
-                            <constraint firstItem="FPy-dp-KuV" firstAttribute="bottom" secondItem="SVQ-OV-EQs" secondAttribute="bottom" constant="57" id="hjm-ap-Mha"/>
+                            <constraint firstItem="0Md-7Q-wSg" firstAttribute="leading" secondItem="FPy-dp-KuV" secondAttribute="leading" constant="16" id="iPW-Zi-8Ox"/>
                             <constraint firstItem="LtO-9e-0fa" firstAttribute="leading" secondItem="Th2-qx-HWV" secondAttribute="leading" id="ifU-Wu-xYx"/>
                             <constraint firstItem="SVQ-OV-EQs" firstAttribute="top" secondItem="LtO-9e-0fa" secondAttribute="bottom" constant="-2" id="koD-aD-2Bp"/>
-                            <constraint firstItem="0Md-7Q-wSg" firstAttribute="top" secondItem="pBb-3q-yax" secondAttribute="bottom" constant="8" id="mgU-Dv-7nv"/>
+                            <constraint firstItem="n0c-rE-nnV" firstAttribute="leading" secondItem="SVQ-OV-EQs" secondAttribute="leading" id="mxD-Rk-7Zk"/>
+                            <constraint firstItem="FPy-dp-KuV" firstAttribute="bottom" secondItem="n0c-rE-nnV" secondAttribute="bottom" constant="20" id="nPW-Ji-63w"/>
                             <constraint firstItem="LtO-9e-0fa" firstAttribute="top" secondItem="Th2-qx-HWV" secondAttribute="bottom" constant="18" id="rCU-1X-nnX"/>
+                            <constraint firstItem="FPy-dp-KuV" firstAttribute="trailing" secondItem="0Md-7Q-wSg" secondAttribute="trailing" constant="16" id="t0C-DY-MuP"/>
                             <constraint firstItem="Th2-qx-HWV" firstAttribute="leading" secondItem="0Md-7Q-wSg" secondAttribute="leading" id="v1D-DS-ty8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FPy-dp-KuV"/>
                     </view>
                     <navigationItem key="navigationItem" id="11G-MQ-hbj"/>
                     <connections>
-                        <outlet property="newClueField" destination="SVQ-OV-EQs" id="yBf-D6-KMI"/>
-                        <outlet property="pageNoField" destination="Th2-qx-HWV" id="N4h-38-Q28"/>
+                        <outlet property="clueDescription" destination="SVQ-OV-EQs" id="vLg-do-GG5"/>
+                        <outlet property="cluePageNo" destination="Th2-qx-HWV" id="x9P-ED-iZ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PU7-2a-U02" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3532.5" y="1680.6338028169014"/>
+            <point key="canvasLocation" x="3533" y="1681"/>
         </scene>
     </scenes>
     <resources>
