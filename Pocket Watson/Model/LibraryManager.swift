@@ -60,6 +60,18 @@ class LibraryManager {
         
     }
     
+    func removeBookFromLibrary(book:NewBook) {
+        library.removeAll(where: {$0 == book})
+        managedContext.delete(book)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+
+    }
+    
     private func loadLibrary() {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "NewBook")
@@ -101,8 +113,6 @@ class LibraryManager {
         }
 
     }
-    
-
     
     func saveClueToClueList(book:NewBook, clue:NewClue, pageNo:Int, clueDesc:String) {
         removeClueFromBook(book: book, clue: clue)

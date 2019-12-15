@@ -54,10 +54,6 @@ class ClueListViewController: UITableViewController {
         return cell
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-    
     @objc func addClue() {
         if let book = selectedBook {
             clueListVM.addNewClue(book: book, pgNo: 0, clue: "")

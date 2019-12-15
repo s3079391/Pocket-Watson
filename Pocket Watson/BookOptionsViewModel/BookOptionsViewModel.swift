@@ -62,4 +62,7 @@ struct BookOptionsViewModel {
         }
     }
     
+    func removeBook(book:NewBook) {
+        libraryMgr.removeBookFromLibrary(book: book)
+    }
 }

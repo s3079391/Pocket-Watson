@@ -28,6 +28,15 @@ class BookOptionsViewController: UIViewController {
     @IBAction func myClues(_ sender: Any) {
     }
     
+    @IBAction func removeBookFromLibrary(_ sender: Any) {
+        if let book = selectedBook {
+            bookOptionsVM.removeBook(book: book)
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

@@ -2,7 +2,7 @@
 //  Pocket_WatsonTests.swift
 //  Pocket WatsonTests
 //
-//  Created by Dana Forte on 8/12/19.
+//  Created by Andrew Savva on 8/12/19.
 //  Copyright © 2019 RMIT. All rights reserved.
 //
 

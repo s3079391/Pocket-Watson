@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A33EE65F23A5CF6B001D0154 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33EE65E23A5CF6B001D0154 /* BarcodeScannerViewController.swift */; };
+		A33EE66123A5D4C4001D0154 /* BarcodeScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33EE66023A5D4C4001D0154 /* BarcodeScannerViewModel.swift */; };
 		A3695341239FB47B00B5D35A /* BookOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3695340239FB47B00B5D35A /* BookOptionsViewModel.swift */; };
 		A3695343239FB48B00B5D35A /* BookOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3695342239FB48B00B5D35A /* BookOptionsViewController.swift */; };
 		A37FFEAF23A4832E00BA5238 /* ClueListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FFEAE23A4832E00BA5238 /* ClueListViewModel.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		A33EE65E23A5CF6B001D0154 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		A33EE66023A5D4C4001D0154 /* BarcodeScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewModel.swift; sourceTree = "<group>"; };
 		A3695340239FB47B00B5D35A /* BookOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOptionsViewModel.swift; sourceTree = "<group>"; };
 		A3695342239FB48B00B5D35A /* BookOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOptionsViewController.swift; sourceTree = "<group>"; };
 		A37FFEAE23A4832E00BA5238 /* ClueListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueListViewModel.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				A33EE65E23A5CF6B001D0154 /* BarcodeScannerViewController.swift */,
+				A33EE66023A5D4C4001D0154 /* BarcodeScannerViewModel.swift */,
 			);
 			path = BarcodeScannerViewModel;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				A38062F6239F62800027C0AB /* LibraryViewController.swift in Sources */,
 				A3F46CDF23A488B8009BC9DD /* NewBook+CoreDataProperties.swift in Sources */,
 				A3FFA6EB239C7C6D00C76D0B /* AppDelegate.swift in Sources */,
+				A33EE66123A5D4C4001D0154 /* BarcodeScannerViewModel.swift in Sources */,
 				A380F3BD23A4A773007CE5A3 /* ClueDetailViewController.swift in Sources */,
 				A3FFA6ED239C7C6D00C76D0B /* SceneDelegate.swift in Sources */,
 				A3F46CDE23A488B8009BC9DD /* NewBook+CoreDataClass.swift in Sources */,

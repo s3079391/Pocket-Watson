@@ -2,13 +2,15 @@
 //  BarcodeScannerViewController.swift
 //  Pocket Watson
 //
-//  Created by Dana Forte on 15/12/19.
+//  Created by Andrew Savva on 15/12/19.
 //  Copyright © 2019 RMIT. All rights reserved.
 //
 
 import UIKit
 
 class BarcodeScannerViewController: UIViewController {
+    
+    private var barcodeScannerVM = BarcodeScannerViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
