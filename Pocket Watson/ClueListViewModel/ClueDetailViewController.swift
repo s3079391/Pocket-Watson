@@ -11,6 +11,7 @@ import UIKit
 class ClueDetailViewController: UIViewController {
     
     private var clueListVM = ClueListViewModel()
+    var clueListVC:ClueListViewController?
     var selectedBook:NewBook?
     var selectedClue:NewClue?
     
@@ -30,8 +31,21 @@ class ClueDetailViewController: UIViewController {
         }
         
         if let book = selectedBook,
-            let clue = selectedClue {
+            let clue = selectedClue,
+            let vc = clueListVC {
             clueListVM.saveClue(book: book, clue: clue, newPage: newCluePage, newDesc: newClueDesc)
+            vc.tableView.reloadData()
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
+    @IBAction func deleteClue(_ sender: Any) {
+        if let book = selectedBook,
+            let clue = selectedClue,
+            let vc = clueListVC {
+            clueListVM.removeClue(book: book, clue: clue)
+            vc.tableView.reloadData()
             dismiss(animated: true, completion: nil)
         }
     }

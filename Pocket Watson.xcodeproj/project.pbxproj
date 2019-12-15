@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A33EE65F23A5CF6B001D0154 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33EE65E23A5CF6B001D0154 /* BarcodeScannerViewController.swift */; };
 		A3695341239FB47B00B5D35A /* BookOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3695340239FB47B00B5D35A /* BookOptionsViewModel.swift */; };
 		A3695343239FB48B00B5D35A /* BookOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3695342239FB48B00B5D35A /* BookOptionsViewController.swift */; };
 		A37FFEAF23A4832E00BA5238 /* ClueListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FFEAE23A4832E00BA5238 /* ClueListViewModel.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A33EE65E23A5CF6B001D0154 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		A3695340239FB47B00B5D35A /* BookOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOptionsViewModel.swift; sourceTree = "<group>"; };
 		A3695342239FB48B00B5D35A /* BookOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOptionsViewController.swift; sourceTree = "<group>"; };
 		A37FFEAE23A4832E00BA5238 /* ClueListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueListViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A33EE65D23A5CDE3001D0154 /* BarcodeScannerViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A33EE65E23A5CF6B001D0154 /* BarcodeScannerViewController.swift */,
+			);
+			path = BarcodeScannerViewModel;
+			sourceTree = "<group>";
+		};
 		A3695338239FB16400B5D35A /* AddBookViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 		A3FFA6E9239C7C6D00C76D0B /* Pocket Watson */ = {
 			isa = PBXGroup;
 			children = (
+				A33EE65D23A5CDE3001D0154 /* BarcodeScannerViewModel */,
 				A37FFEAD23A4831A00BA5238 /* ClueListViewModel */,
 				A369533F239FB46300B5D35A /* BookOptionsViewModel */,
 				A3695339239FB17900B5D35A /* LibraryViewModel */,
@@ -389,6 +400,7 @@
 				A3FFA723239C7EFD00C76D0B /* REST_Request.swift in Sources */,
 				A3FFA721239C7EA200C76D0B /* Book.swift in Sources */,
 				A37FFEAF23A4832E00BA5238 /* ClueListViewModel.swift in Sources */,
+				A33EE65F23A5CF6B001D0154 /* BarcodeScannerViewController.swift in Sources */,
 				A3FFA6F5239C7C6D00C76D0B /* Pocket_Watson.xcdatamodeld in Sources */,
 				A380F3BB23A48E2D007CE5A3 /* NewClue+CoreDataProperties.swift in Sources */,
 				A37FFEB123A4835900BA5238 /* ClueListViewController.swift in Sources */,
@@ -502,7 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -556,7 +568,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -573,6 +585,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P9G6ZDS825;
 				INFOPLIST_FILE = "Pocket Watson/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -591,6 +604,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P9G6ZDS825;
 				INFOPLIST_FILE = "Pocket Watson/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

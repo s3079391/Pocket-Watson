@@ -90,8 +90,22 @@ class LibraryManager {
 
     }
     
-    func saveClueToClueList(book:NewBook, clue:NewClue, pageNo:Int, clueDesc:String) {
+    func removeClueFromBook(book:NewBook, clue:NewClue) {
+        
         book.removeFromClueList(clue)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+
+    }
+    
+
+    
+    func saveClueToClueList(book:NewBook, clue:NewClue, pageNo:Int, clueDesc:String) {
+        removeClueFromBook(book: book, clue: clue)
         addClueToBook(book: book, pageNo: pageNo, clueDesc: clueDesc)
     }
     

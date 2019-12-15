@@ -38,7 +38,11 @@ struct BookOptionsViewModel {
     }
     
     func numberOfClues(book:NewBook) -> String {
-        return "Currently Unknown"
+        var count:Int = 0
+        if let clueList = book.clueList {
+            count = clueList.count
+        }
+        return "\(count) clues"
     }
     
     func changeReadingStatus(book:NewBook, status:String) {

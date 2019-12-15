@@ -15,10 +15,8 @@ class ClueListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let book = selectedBook {
-            clueListVM.addNewClue(book: book, pgNo: 13, clue: "Test test")
-        }
-        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addClue))
+        self.navigationItem.rightBarButtonItem = addButton
     }
     
     // MARK: - Table view data source
@@ -60,12 +58,20 @@ class ClueListViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    @objc func addClue() {
+        if let book = selectedBook {
+            clueListVM.addNewClue(book: book, pgNo: 0, clue: "")
+            let indexPath:IndexPath = IndexPath(row:0, section:0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+            self.performSegue(withIdentifier: "editClue", sender: nil)
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         guard let selectedRow = self.tableView.indexPathForSelectedRow else {
             return
         }
@@ -73,6 +79,7 @@ class ClueListViewController: UITableViewController {
         if let book = selectedBook {
             let destination = segue.destination as? ClueDetailViewController
             let selectedClue = clueListVM.getClue(book: book, index: selectedRow.row)
+            destination?.clueListVC = self
             destination?.selectedBook = book
             destination?.selectedClue = selectedClue
         }

@@ -35,17 +35,14 @@ struct ClueListViewModel {
         libraryMgr.addClueToBook(book: book, pageNo: pgNo, clueDesc: clue)
     }
     
-//    func saveClue(book:NewBook, clue:NewClue, clueID:Int) {
-//        let clueList = getClueList(book: book)
-//        let selectedClue = clueList[clueID]
-//        selectedClue.pageNo = clue.pageNo
-//        selectedClue.clueDesc = clue.clueDesc
-//    }
-    
     func saveClue(book:NewBook, clue:NewClue, newPage:String, newDesc:String) {
         guard let newPgNo = Int(newPage) else {
             return
         }
-        libraryMgr.addClueToBook(book: book, pageNo: newPgNo, clueDesc: newDesc)
+        libraryMgr.saveClueToClueList(book: book, clue: clue, pageNo: newPgNo, clueDesc: newDesc)
+    }
+    
+    func removeClue(book:NewBook, clue:NewClue) {
+        libraryMgr.removeClueFromBook(book: book, clue: clue)
     }
 }
