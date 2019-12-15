@@ -34,7 +34,7 @@ var bookTitles:String {
     }
     
     func getImageFor(url:String) -> UIImage? {
-        let image:UIImage? = nil
+        let image = UIImage(named: "NoImageFound")
         guard let imageURL = URL(string:url) else {
             return image
         }

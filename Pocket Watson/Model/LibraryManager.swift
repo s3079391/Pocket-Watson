@@ -119,4 +119,14 @@ class LibraryManager {
         addClueToBook(book: book, pageNo: pageNo, clueDesc: clueDesc)
     }
     
+    func updatePageNumber(book:NewBook, pageNo:Int16) {
+        book.currentPage = pageNo
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
 }

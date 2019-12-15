@@ -55,11 +55,7 @@ struct BookOptionsViewModel {
     
     func updateCurrentPageNo(book:NewBook, pageNo:String) {
         let newPage:Int = Int(pageNo) ?? 0
-        for eachBook in libraryList {
-            if eachBook == book {
-                book.currentPage = Int16(newPage)
-            }
-        }
+        libraryMgr.updatePageNumber(book: book, pageNo: Int16(newPage))
     }
     
     func removeBook(book:NewBook) {
